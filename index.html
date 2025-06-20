@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doğum Günün Kutlu Olsun Canım!</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Google Fonts - Inter */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Pacifico&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Daha koyu ve şık bir gradyan arka plan */
+            background: linear-gradient(to bottom right, #2a003f, #001f3f); /* Derin mor ve lacivert tonları */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto; /* Sayfa içeriği taştığında kaydırma çubuğu */
+            color: #e0e0e0; /* Açık gri metin rengi */
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.08); /* Yarı saydam, hafif koyu arka plan */
+            border-radius: 25px; /* Daha yuvarlak köşeler */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Daha belirgin ve koyu gölge */
+            padding: 30px;
+            text-align: center;
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Hafif beyaz çerçeve */
+        }
+
+        .game-container {
+            position: relative;
+            width: 100%;
+            /* 16:9 oranını korumak için padding-top kullanıyoruz (9 / 16 * 100 = 56.25%) */
+            padding-top: 56.25%; /* Bu, yüksekliği genişliğin %56.25'i yapar */
+            background-color: #1a1a1a; /* Oyun yüklenirken veya boşken görülecek koyu arka plan */
+            border-radius: 15px;
+            overflow: hidden; /* İçerik taşmasını engelle */
+            margin-bottom: 25px;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5), 0 5px 15px rgba(0, 0, 0, 0.3); /* Daha belirgin gölgeler */
+        }
+
+        .game-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+        }
+
+        .birthday-message h1 {
+            font-family: 'Pacifico', cursive; /* El yazısı font */
+            color: #ffcc00; /* Parlak altın rengi */
+            font-size: 3.5rem; /* Büyük başlık */
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255, 204, 0, 0.5), 0 0 5px rgba(255, 204, 0, 0.8); /* Parlaklık efekti */
+            line-height: 1.2; /* Satır aralığı */
+        }
+
+        .birthday-message p {
+            font-size: 1.3rem;
+            color: #c0c0c0; /* Açık gri metin */
+            line-height: 1.6;
+            margin-bottom: 30px;
+            max-width: 800px;
+        }
+
+        /* Küçük ekranlar için düzenlemeler */
+        @media (max-width: 768px) {
+            .birthday-message h1 {
+                font-size: 2.5rem;
+            }
+            .birthday-message p {
+                font-size: 1rem;
+            }
+            .container {
+                padding: 20px;
+            }
+        }
+
+        /* Daha küçük ekranlar için daha fazla düzenleme */
+        @media (max-width: 480px) {
+            .birthday-message h1 {
+                font-size: 2rem;
+            }
+            .birthday-message p {
+                font-size: 0.9rem;
+            }
+            body {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body class="selection:bg-yellow-500 selection:text-black">
+    <div class="container">
+        <!-- Doğum Günü Mesajı -->
+        <div class="birthday-message mb-8">
+            <h1>Doğum Günün Kutlu Olsun Canım!</h1>
+            <p class="text-gray-300">
+                Sevgili <kız arkadaşının adı>, bu özel günde sana küçük bir sürpriz hazırladım.
+                Birlikte geçirdiğimiz her an, zihnime kazınmış birer anı hazinesi.
+                Şimdi ise seni Anı Zindanı'na davet ediyorum. Bakalım bu zindandan çıkıp,
+                birlikte yeni anılar inşa etmeye hazır mısın? Her adımda seni ne kadar çok sevdiğimi hatırla...
+                Bu oyun, sana olan sevgimin küçük bir sembolü.
+            </p>
+            <p class="text-gray-400 font-semibold mt-4">
+                Umarım bu küçük maceradan keyif alırsın ve bugünün bizim için unutulmaz bir başlangıç olur.
+                Seni çok seviyorum! ❤️
+            </p>
+        </div>
+
+        <!-- WebGL Oyun Alanı -->
+        <div class="game-container">
+            <!--
+                Unity WebGL oyununu buraya yerleştireceksin.
+                'src' kısmına Unity tarafından yayınlanan oyununun 'index.html' veya ana HTML dosyasının yolunu yazmalısın.
+                Şu anda aynı klasördeki "nesgame" klasörünün içindeki "index.html" dosyasına işaret ediyor.
+                Not: Localde çalıştırırken dosya yolunda sorun yaşayabilirsin, genellikle bir web sunucusuna yükleyerek çalışır.
+            -->
+            <iframe
+                src="nesgame/index.html"
+                allowfullscreen="true"
+                webkitallowfullscreen="true"
+                mozallowfullscreen="true"
+                title="Anı Zindanı WebGL Oyunu">
+            </iframe>
+        </div>
+
+        <!-- Alt kısım veya ek doğum günü içeriği -->
+        <div class="mt-8 text-center text-gray-400 text-sm">
+            <p>Bu site, sana özel olarak sevgiyle hazırlandı. İyi ki doğdun!</p>
+        </div>
+    </div>
+</body>
+</html>
